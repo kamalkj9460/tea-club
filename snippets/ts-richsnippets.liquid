@@ -1,0 +1,55 @@
+<!-- Trusted Shops Richsnippets -->
+<div id="richSnippets_Output_ld"></div>
+<script >  
+    var _tsid = 'X51031D0AF094350A1B20AEFD2C90FB66';
+    var ts_item = "trustedRichSnippets_ld"+_tsid;       
+    if(sessionStorage.getItem(ts_item)){
+        $('#richSnippets_Output_ld').html(sessionStorage.getItem(ts_item));
+    }
+    else {
+        var api_URL = 'https://api.trustedshops.com/rest/public/v2/shops/' + _tsid + '/quality/reviews.json';
+        $.get( api_URL, function( data ) {
+            var result = data.response.data.shop.qualityIndicators.reviewIndicator.overallMark;
+            var count = data.response.data.shop.qualityIndicators.reviewIndicator.activeReviewCount;
+            var max = "5.00";
+            if (count > 0) {                
+				var scriptTag  = '<script type="application/ld+json">';
+					scriptTag += '{';
+					scriptTag += '	"@context": "http://schema.org",';
+					scriptTag += '	"@type": "LocalBusiness",';
+					scriptTag += '	"name": "'+ data.response.data.shop.name +'",';
+					scriptTag += '"aggregateRating" : {';
+					scriptTag += '"@type": "AggregateRating",';
+					scriptTag += '"ratingValue" : "'+result+'",' ;
+					scriptTag += '"bestRating" : "'+max+'",';
+					scriptTag += '"ratingCount" : "'+count+'"' ;
+					scriptTag += '},';
+					scriptTag += '	"address": {';
+					scriptTag += '		"@type": "PostalAddress",';
+					scriptTag += '		"streetAddress": "Maisredder 4",';
+					scriptTag += '		"addressLocality": "Hamburg",';
+					scriptTag += '		"addressRegion": "Germany",';
+					scriptTag += '		"postalCode": "22175"';
+					scriptTag += '	},';
+					scriptTag += '	"image": "https://cdn.shopify.com/s/files/1/0821/7481/files/TeaClub_Online_Tee_Shop_325x200px_410x.png",';
+					scriptTag += '	"email": "team@tea-club.de",';
+					scriptTag += '	"telePhone": "+494030852184",';
+					scriptTag += '	"faxNumber": "",';
+					scriptTag += '	"url": "'+ data.response.data.shop.url +'",';
+					scriptTag += '	"paymentAccepted": ["paypal"],';
+					/*scriptTag += '	"geo": {';
+					scriptTag += '		"@type": "GeoCoordinates",';
+					scriptTag += '		"latitude": "50.937531",';
+					scriptTag += '		"longitude": "6.960279"';
+					scriptTag += '	},'; */
+					scriptTag += '	"priceRange":"$$"';
+					scriptTag += '}';
+					scriptTag +=  '<';
+				  	scriptTag +=  '/script>';                   
+          	$('#richSnippets_Output_ld').html(scriptTag);   
+            sessionStorage.setItem(ts_item, scriptTag);              
+            }
+        });
+    }
+</script>
+<!-- Trusted Shops Richsnippets Ende -->

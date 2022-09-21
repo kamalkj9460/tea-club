@@ -1,0 +1,71 @@
+{%comment%}<link rel="stylesheet" type="text/css" href="map.css"></link>{%endcomment%}
+<script type="text/javascript" src="https://www.openlayers.org/api/OpenLayers.js"></script>
+{%comment%}<script type="text/javascript" src="https://www.openlayers.org/api/lang.js"></script>  {%endcomment%}
+<script type="text/javascript" src="https://www.openstreetmap.org/openlayers/OpenStreetMap.js"></script>
+<script src="{{ 'tom.js' | asset_url }}"></script>
+ 
+<script type="text/javascript">
+//<![CDATA[
+
+var map;
+var layer_mapnik;
+var layer_tah;
+var layer_markers;
+ {% assign lon = lon1 %}
+ {% assign lat = lat1 %}
+
+function drawmap() {
+	
+    OpenLayers.Lang.getCode();
+  	{%comment%}
+    OpenLayers.Lang.translate('key','context');
+    {%endcomment%}
+  
+    
+    // Position und Zoomstufe der Karte
+
+    var lon = {{ product.metafields.tee.longitude }};
+    var lat = {{ product.metafields.tee.latitude }};
+    var zoom = 9;
+
+    map = new OpenLayers.Map('map', {
+        projection: new OpenLayers.Projection("EPSG:900913"),
+        displayProjection: new OpenLayers.Projection("EPSG:4326"),
+        controls: [
+            new OpenLayers.Control.Navigation(),
+            new OpenLayers.Control.LayerSwitcher(),
+            new OpenLayers.Control.PanZoomBar()],
+        maxExtent:
+            new OpenLayers.Bounds(-20037508.34,-20037508.34,
+                                    20037508.34, 20037508.34),
+        numZoomLevels: 18,
+        maxResolution: 156543,
+        units: 'meters'
+    });
+
+    layer_mapnik = new OpenLayers.Layer.OSM.Mapnik("Mapnik");
+    layer_markers = new OpenLayers.Layer.Markers("Address", { projection: new OpenLayers.Projection("EPSG:4326"), 
+    	                                          visibility: true, displayInLayerSwitcher: false });
+
+    map.addLayers([layer_mapnik, layer_markers]);
+    jumpTo(lon, lat, zoom);
+ 
+    // Position des Markers
+    addMarker(layer_markers, {{ product.metafields.tee.longitude }}, {{ product.metafields.tee.latitude }});
+
+}
+
+//]]>
+    </script>
+
+  
+  <body onload="drawmap()";></body>
+
+<div id="content"><br><h3>Herkunft: {{ product.metafields.tee.herkunftsland }}</h3></div>
+  <div class="tee-map"> 
+  <div id="map"></div>
+  <div id="osm">© <a href="https://www.openstreetmap.org">OpenStreetMap</a>
+     und <a href="https://www.openstreetmap.org/copyright">Mitwirkende</a>,
+     <a href="https://creativecommons.org/licenses/by-sa/2.0/deed.de">CC-BY-SA</a>
+  </div>
+</div> 
