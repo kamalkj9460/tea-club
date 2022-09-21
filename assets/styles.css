@@ -4317,7 +4317,7 @@ select.currencies {
   padding-top: 0;
   padding-bottom: 0;
   cursor: pointer;
-  background-image: url(//cdn.shopify.com/s/files/1/0821/7481/t/46/assets/select.png?v=116263797215257390791661251728);
+  background-image: url(//cdn.shopify.com/s/files/1/0821/7481/t/48/assets/select.png?v=116263797215257390791663678308);
 }
 @media only screen and (max-width: 798px) {
   select.currencies {
@@ -6908,7 +6908,7 @@ select::-ms-expand {
 }
 
 select {
-  background: #fff url(//cdn.shopify.com/s/files/1/0821/7481/t/46/assets/select.png?v=116263797215257390791661251728) no-repeat 96% 50%;
+  background: #fff url(//cdn.shopify.com/s/files/1/0821/7481/t/48/assets/select.png?v=116263797215257390791663678308) no-repeat 96% 50%;
   background-size: 18px 12px;
   border: 1px solid #d9dbdc;
   -webkit-appearance: none;
@@ -9460,7 +9460,7 @@ a.tag,
   height: 0;
   width: 0;
   transition: all 0.3s linear;
-  background: url(//cdn.shopify.com/s/files/1/0821/7481/t/46/assets/loader.gif) center center no-repeat;
+  background: url(//cdn.shopify.com/s/files/1/0821/7481/t/48/assets/loader.gif) center center no-repeat;
   background-size: 32px 32px;
   margin: 0 auto;
 }
@@ -14053,8 +14053,8 @@ h2 {
 }
 @font-face {
   font-family: "turbo";
-  src: url(//cdn.shopify.com/s/files/1/0821/7481/t/46/assets/turbo.eot?v=8031775066987996871661251701);
-  src: url(//cdn.shopify.com/s/files/1/0821/7481/t/46/assets/turbo.eot?v=8031775066987996871661251701) format("embedded-opentype"), url(//cdn.shopify.com/s/files/1/0821/7481/t/46/assets/turbo.woff?v=120982821278190993901661251701) format("woff"), url(//cdn.shopify.com/s/files/1/0821/7481/t/46/assets/turbo.ttf?v=40378865674909127311661251701) format("truetype"), url(//cdn.shopify.com/s/files/1/0821/7481/t/46/assets/turbo.svg?v=112470159262165616401661251701) format("svg");
+  src: url(//cdn.shopify.com/s/files/1/0821/7481/t/48/assets/turbo.eot?v=8031775066987996871663678308);
+  src: url(//cdn.shopify.com/s/files/1/0821/7481/t/48/assets/turbo.eot?v=8031775066987996871663678308) format("embedded-opentype"), url(//cdn.shopify.com/s/files/1/0821/7481/t/48/assets/turbo.woff?v=120982821278190993901663678308) format("woff"), url(//cdn.shopify.com/s/files/1/0821/7481/t/48/assets/turbo.ttf?v=40378865674909127311663678308) format("truetype"), url(//cdn.shopify.com/s/files/1/0821/7481/t/48/assets/turbo.svg?v=112470159262165616401663678308) format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: swap;

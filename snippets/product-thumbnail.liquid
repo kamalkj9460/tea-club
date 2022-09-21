@@ -51,7 +51,7 @@
           {% else %}
             {% if settings.quick_shop_enabled and settings.quick_shop_style == 'inline' and product.selected_or_first_available_variant.image %}
               {%
-                render 'image-element',
+                render 'image-element-3',
                 image: product.selected_or_first_available_variant.image,
                 alt: alt_text,
                 object_fit: align_height,
@@ -59,7 +59,7 @@
               %}
             {% else %}
               {%
-                render 'image-element',
+                render 'image-element-3',
                 image: product.featured_media.preview_image,
                 alt: alt_text,
                 object_fit: align_height,
@@ -82,7 +82,7 @@
             </div>
           {% else %}
             {%
-              render 'image-element',
+              render 'image-element-2',
               image: product.media[1].preview_image,
               alt: alt_text,
               additional_classes: 'secondary lazypreload secondary-media-hidden',
